@@ -42,6 +42,15 @@ Time      Calls Path
 Total time: 0.028271198272705078
 ```
 
+Installation
+------------
+
+Add Profiler to your Gemfile:
+
+```ruby
+gem 'profiler'
+```
+
 License
 -------
 
