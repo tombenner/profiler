@@ -1,5 +1,6 @@
 directory = File.dirname(File.absolute_path(__FILE__))
 Dir.glob("#{directory}/profiler/*.rb") { |file| require file }
+require "#{directory}/profiler/printers/abstract_printer.rb"
 Dir.glob("#{directory}/profiler/printers/*.rb") { |file| require file }
 
 module Profiler

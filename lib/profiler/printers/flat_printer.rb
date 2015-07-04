@@ -1,5 +1,5 @@
 module Profiler
-  class FlatPrinter < AbstractPrinter
+  class FlatPrinter < Profiler::AbstractPrinter
     private
 
     def print_result(options)
