@@ -21,6 +21,7 @@ module Profiler
     end
 
     def check(caller_offset=0)
+      raise "Profiler hasn't started yet. Please call Profiler.start first." if self.profile.nil?
       return if is_paused
       profile.check(caller_offset)
     end
