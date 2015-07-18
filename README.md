@@ -33,12 +33,12 @@ end
 
 ```
 Time      Calls Path
-5.0e-05   1      -> my_class.rb:3:in `initialize'
-0.00015   1     my_class.rb:3:in `initialize' -> my_class.rb:62:in `do_something'
-0.0001    1     my_class.rb:62:in `do_something' -> my_class.rb:75:in `do_something'
 0.01509   1     my_class.rb:75:in `do_something' -> my_class.rb:84:in `block in do_something'
 0.0126    100   my_class.rb:84:in `block in do_something' -> my_class.rb:84:in `block in do_something'
 0.00027   1     my_class.rb:84:in `block in do_something' -> my_class.rb:111:in `do_something'
+0.00015   1     my_class.rb:3:in `initialize' -> my_class.rb:62:in `do_something'
+0.0001    1     my_class.rb:62:in `do_something' -> my_class.rb:75:in `do_something'
+5.0e-05   1      -> my_class.rb:3:in `initialize'
 Total time: 0.028271198272705078
 ```
 
