@@ -9,7 +9,8 @@ describe Profiler do
     it "records one path" do
       Profiler.start
       Profiler.check
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths.length).to eq(1)
     end
 
@@ -17,14 +18,16 @@ describe Profiler do
       Profiler.start
       Profiler.check
       Profiler.check
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths.length).to eq(2)
     end
 
     it "records one call" do
       Profiler.start
       Profiler.check
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths_counts.values).to eq([1])
     end
 
@@ -33,14 +36,16 @@ describe Profiler do
       5.times do
         Profiler.check
       end
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths_counts.values).to eq([1, 4])
     end
 
     it "records paths" do
       Profiler.start
       Profiler.check
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths.length).to eq(1)
       expect(result.paths.first).to start_with(' -> profiler_spec.rb:')
     end
@@ -48,7 +53,8 @@ describe Profiler do
     it "records durations" do
       Profiler.start
       Profiler.check
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths_durations.length).to eq(1)
       expect(result.paths_durations.values.first).to be_between(0, 0.1)
     end
@@ -60,7 +66,8 @@ describe Profiler do
       Profiler.check
       Profiler.resume
       Profiler.check
-      result = Profiler.stop
+      Profiler.stop
+      result = Profiler.result
       expect(result.paths.length).to eq(2)
     end
   end

@@ -29,5 +29,9 @@ module Profiler
     def stop
       profile.stop
     end
+
+    def result
+      profile.result
+    end
   end
 end

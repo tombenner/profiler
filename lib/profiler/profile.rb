@@ -1,6 +1,6 @@
 module Profiler
   class Profile
-    attr_accessor :previous_line, :previous_time, :paths_counts, :paths_durations
+    attr_accessor :previous_line, :previous_time, :paths_counts, :paths_durations, :result
 
     def initialize
       self.paths_counts = Hash.new(0)
@@ -20,9 +20,13 @@ module Profiler
     end
 
     def stop
-      result = Result.new(self)
-      FlatPrinter.new(result).print
-      result
+      self.result = Result.new(self)
+      print
+      nil
+    end
+
+    def print
+      FlatPrinter.new(self.result).print
     end
   end
 end

@@ -25,7 +25,9 @@ module Profiler
 
     def get_body
       column_lengths = get_column_lengths
-      result.paths_durations.map do |path, duration|
+      paths_durations = result.paths_durations
+      paths_durations = paths_durations.sort_by(&:last).reverse
+      paths_durations.map do |path, duration|
         count = result.paths_counts[path]
         columns = [
           duration.round(5),
