@@ -7,7 +7,7 @@ Overview
 
 Profiler lets you easily measure the time spent in specified code paths.
 
-If a certain code path is taking some time, call `Profiler.start` before it, `Profiler.stop` after it, and `Profiler.check` at significant checkpoints throughout it. Profiler will print information about all of the edges (between the nodes that are specified by `Profiler.check`) that run:
+If a certain code path is taking some time, call `Profiler.start` before it, `Profiler.stop` after it, and `Profiler.check` at significant checkpoints throughout it. For each edge (where an edge is a path between two `Profiler.check` calls), Profiler will print the cumulative time spent in the path and the number of times it was called:
 
 ```ruby
 class MyClass
